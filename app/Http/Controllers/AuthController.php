@@ -30,7 +30,7 @@ class AuthController extends Controller
         //     return redirect('home');
         // }   
     }
-    public function logout(Request $request)
+    public function logout(Request $request)    
     {
         \Auth::logout();
  

@@ -19,7 +19,7 @@ Route::get('/login', 'AuthController@getLogin');
 Route::post('/login', 'AuthController@postLogin')->name('login');
 Route::get('/dashboard', 'DashboardController@getAll')->name('dashboard');
 Route::get('/kategori', 'KategoriController@getData')->name('kategori');
-Route::get('/produk', 'ProdukController@getProduk')->name('produk');
+Route::get('/produk', 'ProdukController@getData')->name('produk');
 Route::get('/user', 'UserController@getData')->name('user');
 Route::get('/admin', 'AdminController@getAdmin')->name('admin');
 Route::get('/riwayat', 'RiwayatController@getRiwayat')->name('riwayat');
@@ -31,6 +31,11 @@ Route::post('/kategori/destroy','KategoriController@destroy')->name('kategori.de
 
 //crud user
 Route::post('/user/destroy','UserController@destroy')->name('user.destroy');
+
+//crud produk
+Route::post('/produk/update','ProdukController@update')->name('produk.update');
+Route::post('/produk/store','ProdukController@store')->name('produk.store');
+Route::post('/produk/destroy','ProdukController@destroy')->name('produk.destroy');
 
 //crud admin
 Route::post('/admin/update','AdminController@update')->name('admin.update');

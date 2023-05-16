@@ -91,14 +91,14 @@
                             aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Master</a>
                         <hr>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-id-badge"></i><a href="{{route('kategori')}}">Produk</a>
+                            <li><i class="fa fa-id-badge"></i><a href="">Produk</a>
                                 <h1></h1>
                             </li>
                             <li><i class="fa fa-bars"></i><a href="{{route('kategori')}}">Kategori</a></li>
                             <hr>
                         </ul>
                     </li>
-                    @if(Auth::user()->email == 'admin2@gmail.com')
+                    <!-- @if(Auth::user()->email == 'admin2@gmail.com') -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Akun</a>
@@ -111,7 +111,7 @@
                             <hr>
                         </ul>
                     </li>
-                    @endif
+                    <!-- @endif -->
                     <li>
                         <a href="{{route('riwayat')}}" aria-haspopup="true" aria-expanded="false"> <i
                                 class="menu-icon fa fa-th"></i>Riwayat Transaksi</a>
