@@ -21,8 +21,7 @@ class AdminController extends Controller
     }
     public function getAdmin()
     {
-        $data_admin = DB::table('akuns')->where('id_role','=',1)->get();
-        $data_admin = Akun::where('id_role','=',1)->get();
+        $data_admin = DB::table('akuns')->where('id_role','=',1)->get();    
         $id_admin = self::autoID();
         return view('admin', ['data_admin' => $data_admin, 'id_admin' => $id_admin]);
     }

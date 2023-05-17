@@ -1,5 +1,8 @@
 @extends('layouts.template')
 @section('content')
+<?php
+// dd(session()->all());
+?>
 <h1>Master Kategori</h1>
 <br>
 <div class="card">

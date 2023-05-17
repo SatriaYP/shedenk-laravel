@@ -1,6 +1,8 @@
+<?php
+dd(session()->all());
+?>
 <!doctype html>
 <html class="no-js" lang="">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -91,14 +93,14 @@
                             aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Master</a>
                         <hr>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-id-badge"></i><a href="">Produk</a>
+                            <li><i class="fa fa-id-badge"></i><a href="{{route('produk')}}">Produk</a>
                                 <h1></h1>
                             </li>
                             <li><i class="fa fa-bars"></i><a href="{{route('kategori')}}">Kategori</a></li>
                             <hr>
                         </ul>
                     </li>
-                    <!-- @if(Auth::user()->email == 'admin2@gmail.com') -->
+                    @if(session()->get('id_role') == 3)
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Akun</a>
@@ -111,7 +113,7 @@
                             <hr>
                         </ul>
                     </li>
-                    <!-- @endif -->
+                    @endif
                     <li>
                         <a href="{{route('riwayat')}}" aria-haspopup="true" aria-expanded="false"> <i
                                 class="menu-icon fa fa-th"></i>Riwayat Transaksi</a>
@@ -183,27 +185,27 @@
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Profile</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <!-- <form action="controller/crudprofile.php" method="POST">
+                <form action="/profile" method="POST">
+                @method('POST')    
+                @csrf
                     <div class="modal-body">
-
-                        <input type="hidden" class="form-control" value="<?php //echo $sesId ?>" name="tid_profile"
-                            readonly>
+                        <input type="hidden" class="form-control" value="{{session()->get('id_profile')}}" name="tid_profile" readonly>
                         <div class="mb-3">
                             <label class="form-label">Nama User</label>
-                            <input type="text" class="form-control" value="<?php //echo $sesNama ?>" name="tnama_profile"
+                            <input type="text" class="form-control" value="{{session()->get('nama')}}" name="tnama_profile"
                                 placeholder="Masukan Nama" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Email</label>
-                            <input type="email" class="form-control" value="<?php //echo $sesEmail ?>"
+                            <input type="email" class="form-control" value="{{session()->get('email')}}"
                                 name=" temail_profile" placeholder="Masukan Email" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Password</label>
-                            <input type="text" class="form-control" value="<?php //echo $sesPass ?>" name=" tpass_profile"
+                            <input type="password" class="form-control" value="" name=" tpass_profile"
                                 placeholder="Masukan Password" required>
                         </div>
-                        <div class="row g-3 align-items-center">
+                        <!-- <div class="row g-3 align-items-center">
                             <div class="col-auto">
                                 <label class="form-label">Password Baru</label>
                                 <input type="text" class="form-control" value="" name=" tpassbaru_profile"
@@ -214,14 +216,14 @@
                                 <input type="text" class="form-control" name=" tkonpass_profile"
                                     placeholder="Masukan Password" required>
                             </div>
-                        </div>
+                        </div> -->
                         <br>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                             <button type="submit" class="btn btn-primary" name="btn_simpanprofile">Simpan</button>
                         </div>
                     </div>
-                </form> -->
+                </form>
             </div>
         </div>
         <!-- End Modal Profile -->

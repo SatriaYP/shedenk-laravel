@@ -2,7 +2,6 @@
 
 @section('content')
 <?php
-// dd($januari);
 ?>
 <div class="animated fadeIn">
     <!-- Widgets  -->
@@ -109,7 +108,7 @@
 </div>
 <!-- /#right-panel -->
 <!-- Modal Profile -->
-<div class="modal fade" id="modalprofile" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+<!-- <div class="modal fade" id="modalprofile" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -137,7 +136,7 @@
                         <input type="text" class="form-control" value="<?php //echo $sesPass ?>" name=" tpass_profile"
                             placeholder="Masukan Password" required>
                     </div>
-                    <!-- <div class="row g-3 align-items-center">
+                    <div class="row g-3 align-items-center">
                             <div class="col-auto">
                                 <label class="form-label">Password Baru</label>
                                 <input type="text" class="form-control" value="" name=" tpassbaru_profile"
@@ -148,7 +147,7 @@
                                 <input type="text" class="form-control" name=" tkonpass_profile"
                                     placeholder="Masukan Password" required>
                             </div>
-                        </div> -->
+                        </div> 
                     <br>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
@@ -157,7 +156,7 @@
                 </div>
             </form>
         </div>
-    </div>
+    </div>-->
     <!-- End Modal Profile -->
 
     <!-- Scripts -->

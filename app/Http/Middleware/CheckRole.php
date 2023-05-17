@@ -13,8 +13,11 @@ class CheckRole
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handles($request, Closure $next)
     {
+        if(auth()->user()->id_role == 1){
+            return $next($request);
+        }
         // $roles = array_slice(func_get_args(), 2);
         // foreach($roles as $role){
         //     $user = auth()->akun()->id_role;
@@ -24,4 +27,12 @@ class CheckRole
         // }
         // return redirect('/dashboard');
     }
+    // public function handle($request, Closure $next, $role)
+    // {
+    //     if (! $request->user()->hasRole($role)) {
+            
+    //     }
+ 
+    //     return $next($request);
+    // }
 }

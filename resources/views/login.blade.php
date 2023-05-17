@@ -14,6 +14,7 @@
     <div class="container">
         <div class="login w-50 h-100%">
             <form action="{{ route('login') }}" method="POST">
+                @method('POST')
                 @csrf
                 <h1>Login</h1>
                 <hr>

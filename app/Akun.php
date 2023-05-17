@@ -15,6 +15,7 @@ class Akun extends Authenticatable
      *
      * @var array
      */
+    public $table = "akuns";
     protected $fillable = [
         'id', 'nama', 'email','hobi','id_role'
     ];
@@ -24,7 +25,10 @@ class Akun extends Authenticatable
      *
      * @var array
      */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    // protected $hidden = [
+    //     'password', 'remember_token',
+    // ];
+    // public function roles() {
+    //     return $this->belongsTo('App\Role');
+    // }
 }

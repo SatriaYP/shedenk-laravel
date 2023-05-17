@@ -1,5 +1,4 @@
 @extends('layouts.template')
-include 'sesautu.php'
 @section('content')
 <h1>Riwayat Transaksi</h1>
 <br>

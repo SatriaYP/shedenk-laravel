@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,12 +10,10 @@
 |
 */
 
-Route::get('/home', function () {
-    return 'HOME';
-})->name('home');
-
 Route::get('/login', 'AuthController@getLogin');
 Route::post('/login', 'AuthController@postLogin')->name('login');
+
+Route::group(['middleware'=>['auth']], function(){
 Route::get('/dashboard', 'DashboardController@getAll')->name('dashboard');
 Route::get('/kategori', 'KategoriController@getData')->name('kategori');
 Route::get('/produk', 'ProdukController@getData')->name('produk');
@@ -42,5 +39,10 @@ Route::post('/admin/update','AdminController@update')->name('admin.update');
 Route::post('/admin/store','AdminController@store')->name('admin.store');
 Route::post('/admin/destroy','AdminController@destroy')->name('admin.destroy');
 
+//crud profile
+Route::post('/profile','ProfileController@update')->name('profile.update');
+
 //logout
 Route::post('/logout', 'AuthController@logout')->name('logout');
+});
+

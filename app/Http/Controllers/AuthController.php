@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 use App\Akun;
 class AuthController extends Controller
 {
@@ -13,26 +14,23 @@ class AuthController extends Controller
 
     public function postLogin(Request $request)
     {
-        if(!\Auth::attempt(['email'=>$request->txt_email, 'password'=>$request->txt_password])){
+        if(Auth::attempt(['email'=>$request->txt_email, 'password'=>$request->txt_password])){
+            dd(Auth::user());
+            $request->session()->put('nama', Auth::user()->nama);
+            $request->session()->put('id', Auth::user()->id);
+            $request->session()->put('email', Auth::user()->email);
+            $request->session()->put('password', Auth::user()->password);
+            $request->session()->put('id_role', Auth::user()->id_role);
+            $request->session()->put('api_token', Auth::user()->api_token);
+            $request->session()->put('hobi', Auth::user()->hobi);
+            return redirect()->route('dashboard');
+        }else{
             return redirect()->back();
-            // return redirect()->route('home');
         }
-        return redirect()->route('dashboard');
-
-        // $email = $request->input('txt_email');
-        // $password = $request->input('txt_password');
-
-        // if ($email == '' || $password == '') {
-        //     return redirect('login?error=Email dan Password wajib diisi');
-        // } else if ($email != '  ' || $password != '  ') {
-        //     return redirect('login?error=Email dan Password salah');
-        // } else {
-        //     return redirect('home');
-        // }   
     }
     public function logout(Request $request)    
     {
-        \Auth::logout();
+        Auth::logout();
  
         request()->session()->invalidate();
  
