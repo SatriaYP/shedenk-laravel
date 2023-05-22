@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Akun;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 class AdminController extends Controller
 {
     public static function autoID() 
@@ -34,6 +35,7 @@ class AdminController extends Controller
             'hobi' => $request->thobi_tambahadmin,
             'id_role' => 1,
         ]);
+        Alert::success('Selamat !', 'Data Admin Berhasil Ditambahkan');
         return redirect('/admin');
     }
     public function update(Request $request)
@@ -43,11 +45,13 @@ class AdminController extends Controller
             'email' => $request->temail_editadmin,
             'password' => bcrypt($request->tpassword_editadmin),
         ]);
+        Alert::success('Selamat !', 'Data Admin Berhasil Diubah');
         return redirect('/admin');
     }
     public function destroy(Request $request)
     {  
 	DB::table('akuns')->where('id',$request->idadmin)->delete();
+    Alert::success('Selamat !', 'Data Admin Berhasil Dihapus');
 	return redirect('/admin');
     }
     

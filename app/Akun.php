@@ -16,8 +16,10 @@ class Akun extends Authenticatable
      * @var array
      */
     public $table = "akuns";
-    protected $fillable = [
-        'id', 'nama', 'email','hobi','id_role'
+    protected $primaryKey = "id";
+    public $incrementing = false;
+    public $fillable = [
+        'id','nama', 'email','hobi','id_role','api_token','password', 'id_temp'
     ];
 
      /**
@@ -31,4 +33,24 @@ class Akun extends Authenticatable
     // public function roles() {
     //     return $this->belongsTo('App\Role');
     // }
+    // public function getId()
+    // {
+    //     return $this->id;
+    // }
+
+	/**
+	 * @return mixed
+	 */
+	public function getFillable() {
+		return $this->fillable;
+	}
+	
+	/**
+	 * @param mixed $fillable 
+	 * @return self
+	 */
+	public function setFillable($fillable): self {
+		$this->fillable = $fillable;
+		return $this;
+	}
 }

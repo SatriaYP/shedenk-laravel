@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProdukController extends Controller
 {
@@ -46,6 +47,7 @@ class ProdukController extends Controller
             $destinationPath = public_path().'/upload' ;
             $foto->move($destinationPath,$foto->getClientOriginalName());
         }
+        Alert::success('Selamat !', 'Data Produk Berhasil Ditambahkan');
         return redirect('/produk');
     }
     public function update(Request $request)
@@ -57,6 +59,7 @@ class ProdukController extends Controller
             'deskripsi'=> $request->tdeskripsi_editproduk,
             'status'=>$request->tstatus_editproduk,
         ]);
+        Alert::success('Selamat !', 'Data Produk Berhasil Diubah');
         return redirect('/produk');
     }
     public function destroy(Request $request)
@@ -69,6 +72,7 @@ class ProdukController extends Controller
         File::delete($destinationPath.'/'.$data->nama);
         }
     DB::table('gambar')->where('id_produk',$request->idproduk)->delete();
+    Alert::success('Selamat !', 'Data Produk Berhasil Dihapus');
 	return redirect('/produk');
     }
 }

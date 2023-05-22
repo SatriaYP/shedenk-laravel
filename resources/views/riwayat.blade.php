@@ -17,34 +17,6 @@
                         <th>Aksi</th>
                     </tr>
                     <?php
-                        // include 'database/koneksi.php';
-                        // $transaksi = "SELECT * FROM transaksi JOIN detail_transaksi ON transaksi.id=detail_transaksi.id_transaksi GROUP BY transaksi.id";
-                        // $result = mysqli_query($koneksi, $transaksi);
-                        // $no = 1;
-                        // while ($row = mysqli_fetch_array($result)) {
-                        //     $id = $row['id'];
-                        //     $tgl = $row['tgl_transaksi'];
-                        //     $total = $row['total_harga'];
-                        //     $iduser = $row['id_akun'];
-
-                        //     $akun = "SELECT * FROM akun WHERE id = '$iduser'";
-                        //     $result2 = mysqli_query($koneksi, $akun);
-                        //     while ($row = mysqli_fetch_array($result2)) {
-                        //         $namauser = $row['nama'];
-                        //         $color = ($no % 2 == 1) ? "white" : "#eee";
-
-                        // 
-                        $server = "localhost";
-                        $username = "root";
-                        $password = "";
-                        $db = "db_shedenk";
-                        $koneksi = mysqli_connect($server, $username, $password, $db);
-                        
-                        if (mysqli_connect_errno()) {
-                            echo "Koneksi gagal : " . mysqli_connect_error();
-                        }
-                        ?>
-                    <?php
                         $no=1;
                     ?>
                     @foreach($data_riwayat as $dr)

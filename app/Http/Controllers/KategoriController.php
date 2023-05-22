@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use app\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 class KategoriController extends Controller
 {
     public static function autoID() 
@@ -32,6 +33,7 @@ class KategoriController extends Controller
             'id' => $request->tid_tambahkategori,
             'nama' => $request->tnama_tambahkategori,
         ]);
+        Alert::success('Selamat !', 'Data Kategori Berhasil Ditambahkan');
         return redirect('/kategori');
     }
     public function update(Request $request)
@@ -39,11 +41,13 @@ class KategoriController extends Controller
         DB::table('kategori')->where('id',$request->tid_editkategori)->update([
             'nama' => $request->tnama_editkategori
         ]);
+        Alert::success('Selamat !', 'Data Kategori Berhasil Diubah');
         return redirect('/kategori');
     }
     public function destroy(Request $request)
     {  
 	DB::table('kategori')->where('id',$request->idkategori)->delete();
+    Alert::success('Selamat !', 'Data Kategori Berhasil Dihapus');
 	return redirect('/kategori');
     }
     

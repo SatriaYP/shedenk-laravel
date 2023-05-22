@@ -59,7 +59,8 @@
                                     <div class="mb-3">
                                         <div class="form-floating">
                                             <textarea class="form-control" placeholder="Masukkan deskripsi produk"
-                                                id="deskripsi" style="height: 100px" name="deskripsi"></textarea>
+                                                id="deskripsi" style="height: 100px" name="deskripsi" value="Deskripsi"></textarea>
+                                                <label for="floatingTextarea2">Deskripsi</label>
                                         </div>
                                     </div>
                                     <div class="mb-3">

@@ -14,9 +14,7 @@ echo $id;
                 <th>Kategori</th>
                 <th>Harga</th>
             </tr>
-
             <?php
-            
             $server = "localhost";
             $username = "root";
             $password = "";
@@ -26,7 +24,7 @@ echo $id;
             if (mysqli_connect_errno()) {
                 echo "Koneksi gagal : " . mysqli_connect_error();
             }
-            $detail = "SELECT * FROM detail_transaksi WHERE id_transaksi = '$id' ";
+            $detail = "SELECT * FROM detail_antrian WHERE id_transaksi = '$id' ";
             $result = mysqli_query($koneksi, $detail);
             $no = 1;
             while ($row = mysqli_fetch_array($result)) {

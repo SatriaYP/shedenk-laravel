@@ -1,5 +1,5 @@
 <?php
-dd(session()->all());
+// dd();
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -28,6 +28,7 @@ dd(session()->all());
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="{!! asset('assets/css/custom.css') !!}">
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <style>
     #weatherWidget .currentDesc {
         color: #ffffff !important;
@@ -72,13 +73,16 @@ dd(session()->all());
     </style>
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/c147fe44e9.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
     <script src="https://malsup.github.io/jquery.form.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
+    <script src="sweetalert.all.js"></script>
 </head>
 <body>
+@include('sweetalert::alert')
     <!-- Left Panel -->
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
@@ -118,8 +122,11 @@ dd(session()->all());
                         <a href="{{route('riwayat')}}" aria-haspopup="true" aria-expanded="false"> <i
                                 class="menu-icon fa fa-th"></i>Riwayat Transaksi</a>
                         <hr>
-                        <ul class="sub-menu children dropdown-menu">
-                        </ul>
+                    </li>
+                    <li>
+                        <a href="{{route('antrian')}}" aria-haspopup="true" aria-expanded="false"> <i
+                                class="menu-icon fas fa-tasks"></i>Antrian Transaksi</a>
+                        <hr>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -145,7 +152,7 @@ dd(session()->all());
                         <div class="user-area dropdown float-right">
                             <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
-                                <img class="user-avatar rounded-circle" src="{!! asset('assets/img/profile.png') !!}"
+                                <span>Halo, {{session()->get('nama')}}&nbsp</span><img class="user-avatar rounded-circle" src="{!! asset('assets/img/profile.png') !!}"
                                     alt="User Avatar">
                             </a>
                             <div class="user-menu dropdown-menu">
@@ -189,7 +196,7 @@ dd(session()->all());
                 @method('POST')    
                 @csrf
                     <div class="modal-body">
-                        <input type="hidden" class="form-control" value="{{session()->get('id_profile')}}" name="tid_profile" readonly>
+                        <input type="hidden" class="form-control" value="{{session()->get('id')}}" name="tid_profile" readonly>
                         <div class="mb-3">
                             <label class="form-label">Nama User</label>
                             <input type="text" class="form-control" value="{{session()->get('nama')}}" name="tnama_profile"
@@ -205,18 +212,6 @@ dd(session()->all());
                             <input type="password" class="form-control" value="" name=" tpass_profile"
                                 placeholder="Masukan Password" required>
                         </div>
-                        <!-- <div class="row g-3 align-items-center">
-                            <div class="col-auto">
-                                <label class="form-label">Password Baru</label>
-                                <input type="text" class="form-control" value="" name=" tpassbaru_profile"
-                                    placeholder="Masukan Password" required>
-                            </div>
-                            <div class="col-auto ">
-                                <label class="form-label">Konfirmasi Password</label>
-                                <input type="text" class="form-control" name=" tkonpass_profile"
-                                    placeholder="Masukan Password" required>
-                            </div>
-                        </div> -->
                         <br>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>

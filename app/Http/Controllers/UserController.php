@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 class UserController extends Controller
 {
     public function getData()
@@ -13,6 +14,7 @@ class UserController extends Controller
     public function destroy(Request $request)
     {  
 	DB::table('akuns')->where('id',$request->iduser)->delete();
+    Alert::success('Selamat !', 'Data User Berhasil Dihapus');
 	return redirect('/user');
     }
     

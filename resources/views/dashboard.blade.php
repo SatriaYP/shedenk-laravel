@@ -2,6 +2,7 @@
 
 @section('content')
 <?php
+// dd(session()->all());
 ?>
 <div class="animated fadeIn">
     <!-- Widgets  -->

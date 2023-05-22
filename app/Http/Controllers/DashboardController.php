@@ -13,7 +13,7 @@ class DashboardController extends Controller
         $queryTransaksi = DB::table('transaksi')->select('id')->count();
         $queryProdukTerjual = DB::table('produk')->select('*')->where('status','=','Terjual')->count();
         $queryProdukTersisa = DB::table('produk')->select('*')->where('status','=','Tersedia')->count();
-        $queryTotalHarga = DB::table('transaksi')->select(DB::raw('sum(total_harga) as total_harga'))->get();
+        $queryTotalHarga = DB::table('transaksi')->select(DB::raw('sum(total_harga) as total_harga'))->whereMonth('tgl_transaksi', Carbon::now())->get();
         $januari = DB::table('transaksi')->select(DB::raw('sum(total_harga) as total'))->whereMonth('tgl_transaksi', '1')->whereYear('tgl_transaksi', Carbon::now())->get();
         $februari = DB::table('transaksi')->select(DB::raw('sum(total_harga) as total'))->whereMonth('tgl_transaksi', '2')->whereYear('tgl_transaksi', Carbon::now())->get();
         $maret = DB::table('transaksi')->select(DB::raw('sum(total_harga) as total'))->whereMonth('tgl_transaksi', '3')->whereYear('tgl_transaksi', Carbon::now())->get();
