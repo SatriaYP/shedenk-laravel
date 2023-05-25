@@ -159,7 +159,7 @@
                                     <div class="modal-body">
                                         <div class="row">
                                             @foreach($data_gambar as $dg)
-                                            @if ($dg->id_produk===$dp->id)
+                                            @if($dg->id_produk===$dp->id)
                                             <div class='col-5 m-3'><img src='upload/{{$dg->nama}}'></div>
                                             @endif
                                             @endforeach
