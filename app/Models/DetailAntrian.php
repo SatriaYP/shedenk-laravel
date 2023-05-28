@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class DetailAntrian extends Model
 {
-    use HasFactory;
+    // use HasFactory;
 
     protected $table = 'detail_antrian';
 

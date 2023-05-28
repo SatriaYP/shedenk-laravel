@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Gambar extends Model
 {
-    use HasFactory;
+    // use HasFactory;
 
     protected $table = 'gambar';
 

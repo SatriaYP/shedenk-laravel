@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class ProdukModel extends Model
 {
-    use HasFactory;
+    // use HasFactory;
 
     protected $table = 'produk';
 

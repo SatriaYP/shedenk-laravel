@@ -26,25 +26,25 @@ use App\Http\Controllers\ApiAntrianController;
 //     return $request->user();
 // });
 
-Route::post('/api/login', [ApiAkunController::class, 'login']);
-Route::post('/api/register', [ApiAkunController::class, 'register']);
+Route::post('/login', [ApiAkunController::class, 'login']);
+Route::post('/register', [ApiAkunController::class, 'register']);
 
-Route::post('/api/update', [ApiUserController::class, 'update']);
+Route::post('/update', [ApiUserController::class, 'update']);
 
-Route::get('/api/dataproduk', [ApiProdukController::class, 'data']);
+Route::get('/dataproduk', [ApiProdukController::class, 'data']);
 
-Route::post('/api/tambahkeranjang', [ApiKeranjangController::class, 'tambah']);
-Route::post('/api/datakeranjang', [ApiKeranjangController::class, 'getData']);
-Route::post('/api/hapuskeranjang', [ApiKeranjangController::class, 'hapusdata']);
+Route::post('/tambahkeranjang', [ApiKeranjangController::class, 'tambah']);
+Route::post('/datakeranjang', [ApiKeranjangController::class, 'getData']);
+Route::post('/hapuskeranjang', [ApiKeranjangController::class, 'hapusdata']);
 
-Route::post('/api/tambahsimpan', [ApiSimpanController::class, 'tambah']);
-Route::post('/api/datasimpan', [ApiSimpanController::class, 'getData']);
-Route::post('/api/hapussimpan', [ApiSimpanController::class, 'hapusdata']);
+Route::post('/tambahsimpan', [ApiSimpanController::class, 'tambah']);
+Route::post('/datasimpan', [ApiSimpanController::class, 'getData']);
+Route::post('/hapussimpan', [ApiSimpanController::class, 'hapusdata']);
 
-Route::post('/api/tambahantrian', [ApiAntrianController::class, 'tambah']);
+Route::post('/tambahantrian', [ApiAntrianController::class, 'tambah']);
 // Route::post('/tambahdetailantrian', [AntrianController::class, 'tambahdetail']);
 
-Route::post('/api/datatransaksi', [ApiTransaksiController::class, 'getData']);
+Route::post('/datatransaksi', [ApiTransaksiController::class, 'getData']);
 
-Route::post('/api/datadetailtransaksi', [ApiDetailTransaksiController::class, 'getData']);
+Route::post('/datadetailtransaksi', [ApiDetailTransaksiController::class, 'getData']);
 

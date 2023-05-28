@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ApiAkun extends Model
 {
-    use HasFactory;
+    // use HasFactory;
 
     protected $table = 'akuns';
 
