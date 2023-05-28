@@ -17,7 +17,7 @@ class AuthController extends Controller
     { 
         if(Auth::attempt(['email'=>$request->txt_email, 'password'=>$request->txt_password])){
             // dd(auth()->user()->id);
-            $request->session()->put('id', Auth::user()->id);
+            $request->session()->put('id', Auth::user()->id_akun);
             $request->session()->put('nama', Auth::user()->nama);
             $request->session()->put('email', Auth::user()->email);
             $request->session()->put('password', Auth::user()->password);

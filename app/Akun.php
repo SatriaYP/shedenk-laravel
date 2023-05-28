@@ -16,10 +16,10 @@ class Akun extends Authenticatable
      * @var array
      */
     public $table = "akuns";
-    protected $primaryKey = "id";
-    public $incrementing = false;
+    protected $primaryKey = "id_akun";
+    // public $incrementing = false;
     public $fillable = [
-        'id','nama', 'email','hobi','id_role','api_token','password', 'id_temp'
+        'id_akun','nama', 'email','id_role','password',
     ];
 
      /**
