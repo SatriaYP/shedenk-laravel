@@ -10,7 +10,8 @@ class AntrianController extends Controller
 {
     public function getAntrian()
     {
-        $data_antrian = DB::table('antrian')->join('detail_antrian', 'antrian.id', '=', 'detail_antrian.id_transaksi')->join('akuns', 'akuns.id', '=', 'antrian.id_akun')->groupBy('antrian.id')->get();
+        $data_antrian = DB::table('antrian')->join('detail_antrian', 'antrian.id', '=', 'detail_antrian.id_transaksi')
+        ->join('akuns', 'akuns.id', '=', 'antrian.id_akun')->groupBy('antrian.id')->get();
         return view('antrian', ['data_antrian' => $data_antrian]);
         // dd($data_riwayat);
     }

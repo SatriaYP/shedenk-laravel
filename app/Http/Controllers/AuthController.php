@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Akun;
+use RealRashid\SweetAlert\Facades\Alert;
 class AuthController extends Controller
 {
     public function getLogin()
@@ -23,9 +24,9 @@ class AuthController extends Controller
             $request->session()->put('id_role', Auth::user()->id_role);
             $request->session()->put('api_token', Auth::user()->api_token);
             $request->session()->put('hobi', Auth::user()->hobi);
-            // dd($request->session()->put('nama', Auth::user()->nama));
             return redirect()->route('dashboard');
         }else{
+            Alert::error('Gagal Login !', 'Username atau Password Salah !');
             return redirect()->back();
         }
     }

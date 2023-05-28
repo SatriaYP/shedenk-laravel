@@ -1,14 +1,7 @@
 @extends('layouts.template')
 @section('content')
-<?php
-                if (isset($_GET['error'])) {
-                ?>
-<div class="alert alert-danger alert-dismissible d-flex align-items-center fade show">
-    <i class="bi-check-circle-fill"></i>
-    <?php echo $_GET['error']?>
     <button type="button" class="btn-close mt-0" data-bs-dismiss="alert"></button>
 </div>
-<?php } ?>
 <h1>Master Produk</h1>
 <div class="card">
     <div class="card-body">
